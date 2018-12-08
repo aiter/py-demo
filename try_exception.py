@@ -36,7 +36,7 @@ except IOError:
     print "Error3: 没有找到文件或读取文件失败"
 
 
-print "异常的参数demo---"
+print('\033[32m%s\033[0m' % "异常的参数demo---")
 # 定义函数
 def temp_convert(var):
     try:
@@ -47,7 +47,8 @@ def temp_convert(var):
 # 调用函数
 temp_convert("xyz")
 
-print "触发异常demo---"
+
+print('\033[32m%s\033[0m' % "触发异常demo---")
 # 定义函数
 def mye( level ):
     if level < 1:
@@ -57,12 +58,13 @@ def mye( level ):
 try:
     mye(0)            # 触发异常
 except Exception,err:
-    print 1,err
+    print('\033[33m%s\033[0m' % err)
+    #print 1,err
 else:
     print 2
 
 
-print "自定义异常demo---"
+print('\033[32m%s\033[0m' % "自定义异常demo---")
 class Networkerror(RuntimeError):
     def __init__(self, arg):
         self.args = arg
@@ -74,6 +76,7 @@ def errortest( level ):
 try:
 	errortest(0)
 except Networkerror,err:
-	print 1,''.join(err)
+	print('\033[31m%s\033[0m' % ''.join(err))
+	#print 1,''.join(err)
 else:
 	print 2
